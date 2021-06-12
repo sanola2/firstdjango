@@ -1,0 +1,17 @@
+{% extends 'first/base.html' %}
+{% load static %}
+{% block content %}
+<body>
+  <div>ㅎㅇㅎㅇ</div>
+  <img src="{% static 'first/sky.jpg' %}" alt="하늘" width="300"/>
+  <p>{{ current_date }}</p>
+  <p>{{ current_date|date:"Y년 m월 d일 H시 i분 s초" }}</p>
+
+  <form action="{% url 'select' %}" method="get">
+    <input type="number" name="number" />
+    <button type="submit">클릭</button>
+  </form>
+
+  <a href="{% url 'select' %}">시작하기</a>
+</body>
+{% endblock %}

@@ -1,0 +1,17 @@
+<h4>{{ context.post.title }}</h4>
+<div>{{ context.post.content }}</div><br>
+<form action="{% url 'post' context.post_id %}" method="POST">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <button type="submit">등록</button>
+</form>
+<ul>
+  <h4>댓글</h4>
+  {% for comment in context.comments %}
+  <li>
+    {{ comment.content }}
+  </li>
+  {% endfor %}
+</ul>
