@@ -34,6 +34,6 @@ class CommentForm(ModelForm):
     labels = {
       'content': _('댓글 내용'),
     }
-    help_text = {
+    help_texts = {
       'content': _('댓글을 입력해 주세요')
     }
