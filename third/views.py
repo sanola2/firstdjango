@@ -12,7 +12,7 @@ def list(request):
   restaurants = Restaurant.objects.all().annotate(reviews_count=Count('review')).annotate(average_point=Avg('review__point'))
   paginator = Paginator(restaurants, 5)
   
-  page = request.GET.get('page')
+  page = request.GET.get('page')     # http://localhost:8000/third/list?page=1&limit=5
   items = paginator.get_page(page)
 
   context = {
@@ -44,6 +44,7 @@ def update(request):
     form = RestaurantForm(instance=item)
     return render(request, 'third/update.html', {'form': form})
   return HttpResponseRedirect('/third/list/')
+
 
 def delete(request):
   if 'id' in request.GET:
